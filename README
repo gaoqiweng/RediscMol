@@ -1,0 +1,27 @@
+Benchmark:
+chembl_29_ecfp4_0.333.csv is the pretraining dataset.
+cdk contains 10 random 10% fine-tuning and the target sets.
+cdk_100 contains 100 random 1% fine-tuning and the target sets.
+
+Scripts:
+evaluation.py is used to calculate the metrics whose environment requires Pytorch and RDKit.
+
+usage: evaluation.py [-h] [--train_path TRAIN_PATH] [--goal_path GOAL_PATH] [--gen_path GEN_PATH] [--n_jobs N_JOBS]
+                     [--metrics_path METRICS_PATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --train_path TRAIN_PATH
+                        Path to fine-tuning molecules csv
+  --goal_path GOAL_PATH
+                        Path to target molecules csv
+  --gen_path GEN_PATH   Path to generated molecules csv
+  --n_jobs N_JOBS       Number of threads
+  --metrics_path METRICS_PATH
+                        Path to output file with metrics
+
+Example:
+
+python evaluation.py --train_path ../Benchmark/cdk/cdk_1_train.csv --goal_path ../Benchmark/cdk/cdk_1_goal.csv --gen_path generated_molecules.csv --n_jobs 48 --metrics_path metrics.csv
+
+The molecules of the generated_molecules.csv have to be valid, unique and novel.
