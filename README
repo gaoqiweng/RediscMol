@@ -1,7 +1,7 @@
 Benchmark:
-chembl_29_ecfp4_0.333.csv is the pretraining dataset.
-cdk contains 10 random 10% fine-tuning and the target sets.
-cdk_100 contains 100 random 1% fine-tuning and the target sets.
+chembl_29_ecfp4_0.333.csv/smi is the pretraining dataset. The kinase and GPCR datasets have their corresponding pretrain datasets.
+cdk contains 10 random 10% fine-tuning and the target sets of CDK.
+cdk_100 contains 100 random 1% fine-tuning and the target sets of CDK.
 
 Scripts:
 evaluation.py is used to calculate the metrics whose environment requires Pytorch and RDKit.
@@ -22,6 +22,6 @@ optional arguments:
 
 Example:
 
-python evaluation.py --train_path ../Benchmark/cdk/cdk_1_train.csv --goal_path ../Benchmark/cdk/cdk_1_goal.csv --gen_path generated_molecules.csv --n_jobs 48 --metrics_path metrics.csv
+python evaluation.py --train_path ../Benchmark/kinase/cdk/cdk_1_train.csv --goal_path ../Benchmark/kinase/cdk/cdk_1_goal.csv --gen_path generated_molecules.csv --n_jobs 48 --metrics_path metrics.csv
 
 The molecules of the generated_molecules.csv have to be valid, unique and novel.
