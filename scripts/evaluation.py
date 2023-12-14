@@ -367,7 +367,7 @@ def main(config):
     metrics['Rediscovery_0.7'] = 0
     metrics['Rediscovery_0.7_number'] = 0
     for level_item in level_list:
-        metrics['Rediscovery_0.7_%s' % level_item] = 0
+        metrics['Rediscovery_0.7_%s_number' % level_item] = 0
     if len(same_smi_list) > 0:
         for smiles in same_smi_list:
             level = df_goal[df_goal['SMILES'] == smiles]['LEVEL'].values
@@ -395,7 +395,7 @@ def main(config):
             re_goal_train_07_number / len(same_smi_list)
         metrics['Rediscovery_0.7_number'] = re_goal_train_07_number
         for level_item in level_list:
-            metrics['Rediscovery_0.7_%s' % level_item] = same_smi_level_07_list.count(level_item)
+            metrics['Rediscovery_0.7_%s_number' % level_item] = same_smi_level_07_list.count(level_item)
     gen_train_max_sim_list, gen_train_max_sim_smiles_list = max_similarity(gen, train)
     gen_goal_max_sim_list, gen_goal_max_sim_smiles_list = max_similarity(gen, goal)
     gen_goal_train_max_sim_list, gen_goal_train_max_sim_smiles_list = max_similarity(gen_goal_max_sim_smiles_list,
@@ -460,7 +460,7 @@ def main(config):
     metrics['Sim_0.7_train_0.7'] = 0
     metrics['Sim_0.7_train_0.7_number'] = 0
     for level_item in level_list:
-        metrics['Sim_0.7_train_0.7_%s' % level_item] = 0
+        metrics['Sim_0.7_train_0.7_%s_number' % level_item] = 0
     metrics['Sim_0.8'] = 0
     metrics['Sim_0.8_number'] = 0
     for level_item in level_list:
@@ -468,7 +468,7 @@ def main(config):
     metrics['Sim_0.8_train_0.7'] = 0
     metrics['Sim_0.8_train_0.7_number'] = 0
     for level_item in level_list:
-        metrics['Sim_0.8_train_0.7_%s' % level_item] = 0
+        metrics['Sim_0.8_train_0.7_%s_number' % level_item] = 0
     metrics['Sim_0.9'] = 0
     metrics['Sim_0.9_number'] = 0
     for level_item in level_list:
@@ -476,7 +476,7 @@ def main(config):
     metrics['Sim_0.9_train_0.7'] = 0
     metrics['Sim_0.9_train_0.7_number'] = 0
     for level_item in level_list:
-        metrics['Sim_0.9_train_0.7_%s' % level_item] = 0
+        metrics['Sim_0.9_train_0.7_%s_number' % level_item] = 0
 
     if gen_goal_07_num > 0:
         metrics['Sim_0.7'] = gen_goal_07_num / len(gen)
@@ -486,7 +486,7 @@ def main(config):
         metrics['Sim_0.7_train_0.7'] = gen_goal_train_07_number / gen_goal_07_num
         metrics['Sim_0.7_train_0.7_number'] = gen_goal_train_07_number
         for level_item in level_list:
-            metrics['Sim_0.7_train_0.7_%s' % level_item] = gen_goal_07_train_07_level_list.count(level_item)
+            metrics['Sim_0.7_train_0.7_%s_number' % level_item] = gen_goal_07_train_07_level_list.count(level_item)
     if gen_goal_08_num > 0:
         metrics['Sim_0.8'] = gen_goal_08_num / len(gen)
         metrics['Sim_0.8_number'] = gen_goal_08_num
@@ -495,7 +495,7 @@ def main(config):
         metrics['Sim_0.8_train_0.7'] = gen_goal_train_08_number / gen_goal_08_num
         metrics['Sim_0.8_train_0.7_number'] = gen_goal_train_08_number
         for level_item in level_list:
-            metrics['Sim_0.8_train_0.7_%s' % level_item] = gen_goal_08_train_07_level_list.count(level_item)
+            metrics['Sim_0.8_train_0.7_%s_number' % level_item] = gen_goal_08_train_07_level_list.count(level_item)
     if gen_goal_09_num > 0:
         metrics['Sim_0.9'] = gen_goal_09_num / len(gen)
         metrics['Sim_0.9_number'] = gen_goal_09_num
@@ -504,7 +504,7 @@ def main(config):
         metrics['Sim_0.9_train_0.7'] = gen_goal_train_09_number / gen_goal_09_num
         metrics['Sim_0.9_train_0.7_number'] = gen_goal_train_09_number
         for level_item in level_list:
-            metrics['Sim_0.9_train_0.7_%s' % level_item] = gen_goal_09_train_07_level_list.count(level_item)
+            metrics['Sim_0.9_train_0.7_%s_number' % level_item] = gen_goal_09_train_07_level_list.count(level_item)
     table = pd.DataFrame([metrics]).T
     table.to_csv(metrics_out, header=False)
 
